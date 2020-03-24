@@ -37,8 +37,8 @@ int main() {
 	cudaMalloc((void**)&data, arrByteSize);
 	cudaMemcpy(data, arrData, arrByteSize, cudaMemcpyHostToDevice);
 
-	dim3 block{ 4 };
-	dim3 grid{ 4 };
+	dim3 block{ 16 };
+	dim3 grid{ 1 };
 
 	uniqueIdxCalcUsingThreadIdx <<< grid, block >>> (data);
 	
